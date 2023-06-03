@@ -21,6 +21,17 @@ const people = [
   },
 ];
 
+const oldEnough = people.filter(person => person.age >= 21);
+console.log(oldEnough);
+
+const paul = people.filter(person => person.name === "Paul");
+console.log(paul);
+
+const onlyPaul = people.filter(p => p.name === "Paul")[0];
+console.log(onlyPaul);
+
+
+
 
 // Complex Filtering
 const students = [
@@ -55,3 +66,14 @@ const students = [
     ]
   },
 ];
+
+// filter out students who don't have at least 5 yrs of experience
+// in at least 1 skill
+// so should be left with only Mark and Jason (since Ariel has a max of 4yrs exp)
+
+// CTRL + L clears the console
+const has5yearsExp = skill => skill.yrsExperience >= 5;
+const hasStrongSkills = student => student.skills.filter(has5yearsExp).length > 0;
+
+const candidates = students.filter(hasStrongSkills);
+console.log(candidates);
